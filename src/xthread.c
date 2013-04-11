@@ -2,6 +2,7 @@
 #include <sk328/delay.h>
 #include <sk328/led.h>
 #include <stdio.h>
+#include <sk328/odetect.h>
 
 void xthread_refexec(int stime, int ctime) //main process exectuion (startup time, cycle time)
 {
@@ -19,6 +20,7 @@ void main_xthread(ctime) //main process (cycle time)
   data=uart_read();
   //    if(data=='h')
   blink_led(10);
-  printf("odetect_process();\n\r");
+  //printf("odetect_process();\n\r");
+  odetect_process();
   delay(ctime);	
 }

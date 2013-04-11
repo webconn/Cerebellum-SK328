@@ -1,2 +1,20 @@
-config HELLO_WORLD
-bool "Say hello to the world"
+config FRONT_LEFT_REF
+int "Front left reference"
+
+config FRONT_CENTER_REF
+int "Front center reference"
+
+config FRONT_RIGHT_REF
+int "Front right reference"
+
+config LEFT_REF
+int "Left reference"
+
+config RIGHT_REF
+int "Right reference"
+
+config REAR_LEFT_REF
+int "Rear left reference"
+
+config REAR_RIGHT_REF
+int "Rear right reference"

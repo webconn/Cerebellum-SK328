@@ -31,6 +31,7 @@ void adc_init()
 void adc_ch_set(uint8_t ADCchannel)
 {
 	ADMUX = (ADMUX & 0xF0) | (ADCchannel & 0x0F);
+    while(!(ADCSRA & (1<<ADIF))); // wait while conversion is performed
 }
 
 void adc_start(void)
@@ -56,24 +57,24 @@ void adc_test()
 	sei();
 	while(1)
 	{
-		  printf("ADC Values");		  
+		  printf("ADC ");		  
 		  adc_ch_set(0);
-		  printf(" [%u] ", ADCH);
+		  printf("[%03u]", ADCH);
 		  adc_ch_set(1);
-		  printf(" [%u] ", ADCH);
+		  printf("[%03u]", ADCH);
 		  adc_ch_set(2);
-		  printf(" [%u] ", ADCH);
+		  printf("[%03u]", ADCH);
 		  adc_ch_set(3);
-		  printf(" [%u] ", ADCH);
+		  printf("[%03u]", ADCH);
 		  adc_ch_set(4);
-		  printf(" [%u] ", ADCH);
-		  adc_ch_set(5);
-		  printf(" [%u] ", ADCH);
+		  printf("[%03u]", ADCH);
+		  //adc_ch_set(5);
+		  //printf("[%u]", ADCH);
 		  adc_ch_set(6);
-		  printf(" [%u] ", ADCH);
+		  printf("[%03u]", ADCH);
 		  adc_ch_set(7);
-		  printf(" [%u] ", ADCH);
-		  printf("  done reading\r\n");		  
+		  printf("[%03u]", ADCH);
+		  printf("\r\n");		  
 	}
 }
 

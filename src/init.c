@@ -1,10 +1,12 @@
 #include <sk328/init.h>
+#include <sk328/odetect.h>
 
 void initall(int verbose) //main initialisation
 {
     //asset MCU UART to standart out
    uart_init(UBRR);    //init MCU UART
    led_init();
+   odetect_init();
    if(verbose) //do some dbg info
    {
     printf("Loading\n\r");     
